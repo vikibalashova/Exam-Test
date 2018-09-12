@@ -4,19 +4,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
-    protected WebDriver browser;
+    WebDriver browser;
 
-    public WebElement waitUntilElementIsVisible(WebElement webElement, int timeOutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(browser, timeOutInSeconds);
+    WebElement waitUntilElementIsVisible(WebElement webElement, int timeOutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(browser, 60);
         wait.until(ExpectedConditions.visibilityOf(webElement));
         return webElement;
     }
 
-    public String getCurrentPageTitle() {
+    String getCurrentPageTitle() {
         return browser.getTitle();
     }
 
-    public String getCurrentPageUrl() {
+    String getCurrentPageUrl() {
         return browser.getCurrentUrl();
     }
 

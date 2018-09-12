@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class SecondPage extends BasePage {
-    @FindBy(xpath = "//div[@class='srg' and @class='g']")
+    @FindBy(xpath = "//div[@class='srg']/div[@class='g']")
     private List<WebElement> searchResult;
     private Iterable<? extends WebElement> searchResults;
 
@@ -20,9 +20,7 @@ public class SecondPage extends BasePage {
     }
 
     public boolean isLoaded() {
-        return searchResultsSum.isDisplayed()
-                && getCurrentPageTitle().contains("Поиск в Google")
-                && getCurrentPageUrl().contains("/search");
+        return searchResultsSum.isDisplayed() && getCurrentPageTitle().contains("Поиск в Google") && getCurrentPageUrl().contains("/search");
 
     }
 

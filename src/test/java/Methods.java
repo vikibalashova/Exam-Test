@@ -15,7 +15,7 @@ public class Methods {
     @Parameters({"browserName"})
 
     @BeforeMethod
-    public void beforeMethod(@Optional("browserName") String browserName) {
+    public void beforeMethod(@Optional("chrome") String browserName) {
         if (browserName.toLowerCase().equals("firefox")) {
             browser = new FirefoxDriver();
         }
@@ -30,6 +30,8 @@ public class Methods {
         }
 
         browser.get("https://www.google.com/");
+
+        startPage = new StartPage(browser);
 
 
     }

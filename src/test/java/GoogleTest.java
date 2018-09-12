@@ -11,13 +11,11 @@ import java.util.List;
 public class GoogleTest extends Methods {
 
 
-    //private StartPage startPage;
-
     @Test
     public void basicSearchTest() {
         String searchWord = "Selenium";
-        
-       Assert.assertTrue(startPage.isLoaded(), "HomePage is not loaded");
+
+        Assert.assertTrue(startPage.isLoaded(), "HomePage is not loaded");
         FirstPage firstPage = startPage.search(searchWord);
 
         Assert.assertTrue(firstPage.isLoaded(), "Search page is not loaded.");
@@ -26,19 +24,17 @@ public class GoogleTest extends Methods {
         List<String> searchResults = firstPage.getSearchResultsList();
 
         for (String searchResult : searchResults) {
-            Assert.assertTrue(searchResult.toLowerCase().contains(searchWord.toLowerCase()),
-                    "searchWord" + searchWord + "not found in: \n" + searchResults);
+            Assert.assertTrue(searchResult.toLowerCase().contains(searchWord.toLowerCase()), "searchWord" + searchWord + "not found in: \n" + searchResults);
         }
 
-         SecondPage secondPage =firstPage.goToSecondPage();
+        SecondPage secondPage = firstPage.goToSecondPage();
         Assert.assertTrue(secondPage.isLoaded(), "Second search page is not loaded.");
         Assert.assertEquals(secondPage.getSearchResultsCount(), 10, "Search results count is wrong.");
 
         List<String> searchResultsSecondPage = firstPage.getSearchResultsList();
 
         for (String searchResult : searchResultsSecondPage) {
-            Assert.assertTrue(searchResult.toLowerCase().contains(searchWord.toLowerCase()),
-                    "searchWord" + searchWord + "not found in: \n" + searchResults);
+            Assert.assertTrue(searchResult.toLowerCase().contains(searchWord.toLowerCase()), "searchWord" + searchWord + "not found in: \n" + searchResults);
         }
 
 

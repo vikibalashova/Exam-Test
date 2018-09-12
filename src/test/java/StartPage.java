@@ -6,14 +6,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public abstract class StartPage extends BasePage {
-
-
+public class StartPage extends BasePage {
     @FindBy(xpath = "//*[@ id ='lst-ib']")
     private WebElement gogleId;
-
-    WebDriver browser;
-
 
     public StartPage(WebDriver browser) {
         this.browser = browser;
@@ -30,12 +25,9 @@ public abstract class StartPage extends BasePage {
     }
 
     public boolean isLoaded() {
-        return gogleId.isDisplayed()
-                && getCurrentPageUrl().equals("https://www.google.com/")
-                && getCurrentPageTitle().equals("Google");
+        return gogleId.isDisplayed() && getCurrentPageUrl().equals("https://www.google.com/") && getCurrentPageTitle().equals("Google");
 
     }
-
 
 
 }

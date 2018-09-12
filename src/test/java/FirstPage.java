@@ -9,7 +9,7 @@ import java.util.List;
 
 public class FirstPage extends BasePage {
 
-    @FindBy(xpath = "//div[@class='srg' and @class='g']")
+    @FindBy(xpath = "//div[@class='srg']/div[@class='g']")
     private List<WebElement> searchResult;
     private Iterable<? extends WebElement> searchResults;
 
@@ -26,9 +26,7 @@ public class FirstPage extends BasePage {
     }
 
     public boolean isLoaded() {
-        return searchResultsSum.isDisplayed()
-                && getCurrentPageTitle().contains("Поиск в Google")
-                && getCurrentPageUrl().contains("/search");
+        return searchResultsSum.isDisplayed() && getCurrentPageTitle().contains("Поиск в Google") && getCurrentPageUrl().contains("/search");
 
     }
 
@@ -39,9 +37,9 @@ public class FirstPage extends BasePage {
 
     public List<String> getSearchResultsList() {
         List<String> searchResultsList = new ArrayList<String>();
-        for (WebElement searchResult : searchResults) {
-            ((JavascriptExecutor) browser).executeScript("arguments[0].scrollIntoView();", searchResult);
-            searchResultsList.add(searchResult.getText());
+        for (WebElement tt : searchResult) {
+            ((JavascriptExecutor) browser).executeScript("arguments[0].scrollIntoView();", tt);
+            searchResultsList.add(tt.getText());
         }
         return searchResultsList;
 
