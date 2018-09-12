@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class BasePage {
     protected WebDriver browser;
 
-    public WebElement waitUntilElementIsVisible (WebElement webElement, int timeOutInSeconds){
+    public WebElement waitUntilElementIsVisible(WebElement webElement, int timeOutInSeconds) {
         WebDriverWait wait = new WebDriverWait(browser, timeOutInSeconds);
         wait.until(ExpectedConditions.visibilityOf(webElement));
         return webElement;
@@ -15,6 +15,7 @@ public abstract class BasePage {
     public String getCurrentPageTitle() {
         return browser.getTitle();
     }
+
     public String getCurrentPageUrl() {
         return browser.getCurrentUrl();
     }

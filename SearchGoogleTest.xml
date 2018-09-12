@@ -6,13 +6,13 @@
 
         <parameter name="browserName" value="Firefox" />
         <classes>
-            <class name="test.GoogleTest" />
+            <class name="GoogleTest" />
         </classes>
     </test>
     <test name="SearchGoogleTestChrome" >
         <parameter name="browserName" value="Chrome"/>
         <classes>
-            <class name="test.GoogleTest" />
+            <class name="GoogleTest" />
         </classes>
     </test>
 </suite>
